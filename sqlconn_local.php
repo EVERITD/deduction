@@ -1,13 +1,13 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
-// $myServer = '192.168.16.63';
-// $myUser = 'sa';
-// $myPass = 'donterase';
-// $myDB = "DM_DEDUCTION";
 $myServer = '192.168.16.63';
 $myUser = 'sa';
 $myPass = 'donterase';
-$myDB = "DEDUCTION_TESTDATA";
+$myDB = "DM_DEDUCTION";
+// $myServer = '192.168.16.63';
+// $myUser = 'sa';
+// $myPass = 'donterase';
+// $myDB = "DEDUCTION_TESTDATA";
 // $myServer = '(local)';
 // $myUser = 'sa';
 // $myPass = 'donterase';
