@@ -1,0 +1,3 @@
+Error in branch.
+Please check branch before uploading, 302, 303, etc are currently not acceptable, it must be prefixed with 'S'.
+Thank you.

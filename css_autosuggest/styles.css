@@ -1,0 +1,87 @@
+body {
+	margin-bottom: 0px;
+	font-family: Verdana;
+	font-size: 10px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #525252;
+}
+a:link {
+	color: 000000;
+	font-family: Verdana;
+	font-size: 11px;
+	text decoration: none;
+}
+a:hover {
+	color: 0000FF;
+	font-family: verdana;
+	font-size: 11px;
+	font-style: normal;
+	line-height: normal;
+	font-variant: normal;
+	text-transform: none;
+	border: thin none #FFFFFF;
+}
+a:visited {
+	color: 333333;
+	font-family: verdana;
+	font-size: 11px;
+	font-style: normal;
+
+}
+td, textarea, input, select {
+	font-family: Verdana;
+	font-size: 10px;
+	color: 000000;
+	font-weight: normal;
+}
+.tableDetail {
+	font-size: 10px;
+	font-family: Verdana;
+	color: #000000;
+}
+.text1 {
+	font-family: Verdana;
+	font-size: 11px;
+	color: 000000;
+	font-weight: bold;
+}
+.text2 {
+	font-family: Verdana;
+	font-size: 9px;
+	font-weight: normal;
+	color:000000;
+}
+.text3 {
+	font-family: Verdana;
+	font-size: 9px;
+	font-weight: bold;
+	color:000000;
+}
+.frame {
+	font-family: Verdana;
+	font-size: 10px;
+	color: #FE6400;
+	border: 1px solid #b9b9b9;
+}
+.text4 {
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	color: CCCCCC;
+}
+.designed_by {
+	font-family: verdana;
+	font-size: 9px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+.text5 {
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	color: #0066ff;
+}
