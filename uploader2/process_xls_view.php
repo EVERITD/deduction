@@ -144,6 +144,9 @@
             $xi = 0;
             if (!$viewOnly and count($sheet) > 0) :
               foreach ($sheet as $row) :
+                if (!$row['F']) {
+                  $row['F'] = '';
+                }
                 if ($dataIndex !== 0 and ($row['A']
                   or $row['B']
                   or $row['C']
