@@ -454,7 +454,7 @@ ob_start();
 
 					<div class="pull-right">
 						<a href="<?php echo $_SERVER['PHP_SELF']; ?>" class="btn"><i class="icon-refresh"></i> Reset/Clear</a>
-						<a href="/deduction/deductionmain.php" class="btn"><i class="icon-arrow-left"></i> Back</a>
+						<a href="new/deduction/deductionmain.php" class="btn"><i class="icon-arrow-left"></i> Back</a>
 						<a href="?year=<?php echo $input['year'] . '&month=' . $input['month'] . '&status=' . $input['status'] . '&chk=' . urlencode(serialize($input['chk'])) . '&chkdept=' . urlencode(serialize($input['chkdept'])); ?>&download=yes" id="adownload" class="btn btn-success"><i class="icon-download-alt icon-white"></i> Download Results</a>
 					</div>
 
