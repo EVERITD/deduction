@@ -104,13 +104,54 @@ if (count($sheet) > 0) {
                 if (trim(strtoupper($row['A'])) === 'S306')
                     $row['A'] = 'S399';
 
-                $qry = " insert into deduction_master(dm_no, branch_code, division_code, dept_code, category_code, subcat_code, promo, vendorcode, suppliername, dm_date,
-                period, amount, paymentid, remarks, remarks1, encoded_by, encoded_date, eposted, buyerid, isforreview, isposted, isdmprinted,department)
-                values ( '{$dm_no}', '{$row['A']}', '{$row['B']}', '{$row['C']}',
-                '{$row['D']}', '{$row['E']}','{$row['F']}', '{$row['I']}', '" . trim(str_replace('\'', '\'+char(39)+\'', $suppliername)) . "',
-                getdate(), '{$row['K']}', '{$row['L']}', '{$row['M']}',
-                '{$subcat['shortcode']}', '{$subcat['longcode']}-{$row['N']}', '{$lcuser}',
-                getdate(), '{$id}', '{$row['H']}',1,1,1, '{$row['I']}')";
+                $qry = " insert into deduction_master(
+                    dm_no, 
+                    branch_code, 
+                    division_code, 
+                    dept_code, 
+                    category_code, 
+                    subcat_code, 
+                    promo, 
+                    vendorcode, 
+                    suppliername, 
+                    dm_date,
+                    period, 
+                    amount, 
+                    paymentid, 
+                    remarks, 
+                    remarks1, 
+                    encoded_by, 
+                    encoded_date, 
+                    eposted, 
+                    buyerid, 
+                    isforreview, 
+                    isposted, 
+                    isdmprinted,
+                    department)
+                    values ( 
+                        '{$dm_no}', 
+                        '{$row['A']}', 
+                        '{$row['B']}', 
+                        '{$row['C']}',
+                        '{$row['D']}', 
+                        '{$row['E']}',
+                        '{$row['F']}', 
+                        '{$row['J']}',  
+                        '" . trim(str_replace('\'', '\'+char(39)+\'', $suppliername)) . "',
+                        getdate(), 
+                        '{$row['K']}', 
+                        '{$row['L']}', 
+                        '{$row['M']}',
+                        '{$subcat['shortcode']}', 
+                        '{$subcat['longcode']}-{$row['N']}', 
+                        '{$lcuser}',
+                        getdate(), 
+                        '{$id}', 
+                        '{$row['H']}',
+                        1,
+                        1,
+                        1,
+                        '{$row['I']}')";
 
                 @mssql_query($qry);
                 //    die();
