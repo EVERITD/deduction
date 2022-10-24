@@ -97,9 +97,9 @@ if (count($sheet) > 0) {
 
                 if (trim(strtoupper(trim($row['A']))) === 'S306')
                     $row['A'] = 'S399';
-                $conso_br = funcGetConsoPO(trim($row['A']), trim($row['I']));
+                $conso_br = funcGetConsoPO(trim($row['A']), trim($row['J']));
                 $dm_no = funcGetNewDm(trim($row['A']));
-                $suppliername = funcGetSupplierName(trim($row['I']));
+                $suppliername = funcGetSupplierName(trim($row['J']));
                 $subcat = funcGetSubCat(trim($row['E']));
                 if (trim(strtoupper($row['A'])) === 'S306')
                     $row['A'] = 'S399';
