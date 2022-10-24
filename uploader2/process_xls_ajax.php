@@ -61,50 +61,50 @@ if (count($sheet) > 0) {
         $branch = 'S399';
 
     // save the main files
-    $qry = " insert into deductions_upload
-            ( filename, ref_division_id, ref_branch_id, ref_department_id, upload_by, upload_date,
-            status_id, remarks, log_file )
-            values(
-                '" . $dateHash . "', '{$division_code}', '{$branch}', '{$dept_code}', '{$lcuser}', getdate(),
-                3, '{$remarks}', '-none-'
-            ); select * from deductions_upload where ltrim(rtrim(filename)) = '{$dateHash}';
-        ";
+    // $qry = " insert into deductions_upload
+    //         ( filename, ref_division_id, ref_branch_id, ref_department_id, upload_by, upload_date,
+    //         status_id, remarks, log_file )
+    //         values(
+    //             '" . $dateHash . "', '{$division_code}', '{$branch}', '{$dept_code}', '{$lcuser}', getdate(),
+    //             3, '{$remarks}', '-none-'
+    //         ); select * from deductions_upload where ltrim(rtrim(filename)) = '{$dateHash}';
+    //     ";
 
-    $result = mssql_query($qry);
-    while ($rs = mssql_fetch_object($result)) {
-        $id = $rs->id;
-        $counter = 0;
-        foreach ($sheet as $row) {
+    // $result = mssql_query($qry);
+    // while ($rs = mssql_fetch_object($result)) {
+    $id = $rs->id;
+    $counter = 0;
+    foreach ($sheet as $row) {
 
-            // Assign deduction number;
-            // $row = array_diff($row, array(''));
-            // if($counter !== 0 and !empty($row))
+        // Assign deduction number;
+        // $row = array_diff($row, array(''));
+        // if($counter !== 0 and !empty($row))
 
-            if ($counter !== 0 and ($row['A']
-                or $row['B']
-                or $row['C']
-                or $row['D']
-                or $row['E']
-                or $row['F']
-                or $row['G']
-                or $row['H']
-                or $row['I']
-                or $row['J']
-                or $row['K']
-                or $row['L']
-            )) {
+        if ($counter !== 0 and ($row['A']
+            or $row['B']
+            or $row['C']
+            or $row['D']
+            or $row['E']
+            or $row['F']
+            or $row['G']
+            or $row['H']
+            or $row['I']
+            or $row['J']
+            or $row['K']
+            or $row['L']
+        )) {
 
 
-                if (trim(strtoupper(trim($row['A']))) === 'S306')
-                    $row['A'] = 'S399';
-                $conso_br = funcGetConsoPO(trim($row['A']), trim($row['I']));
-                $dm_no = funcGetNewDm(trim($row['A']));
-                $suppliername = funcGetSupplierName(trim($row['I']));
-                $subcat = funcGetSubCat(trim($row['E']));
-                if (trim(strtoupper($row['A'])) === 'S306')
-                    $row['A'] = 'S399';
+            if (trim(strtoupper(trim($row['A']))) === 'S306')
+                $row['A'] = 'S399';
+            $conso_br = funcGetConsoPO(trim($row['A']), trim($row['I']));
+            $dm_no = funcGetNewDm(trim($row['A']));
+            $suppliername = funcGetSupplierName(trim($row['I']));
+            $subcat = funcGetSubCat(trim($row['E']));
+            if (trim(strtoupper($row['A'])) === 'S306')
+                $row['A'] = 'S399';
 
-                $qry = " insert into deduction_master(
+            $qry = " insert into deduction_master(
                     dm_no, 
                     branch_code, 
                     division_code, 
@@ -152,18 +152,20 @@ if (count($sheet) > 0) {
                         1,
                         1,
                         '{$row['I']}')";
+            var_dump($qry);
+            die();
 
-                @mssql_query($qry);
-                //    die();
+            // @mssql_query($qry);
+            //    die();
 
-                if (strlen(trim($conso_br)) > 2) {
-                    // $qry_conso = "delete from conspo_pivot where dm_no='$dm_no'; insert into conspo_pivot (dm_no,main_site,is_active,update_at,created_at) values ('{$dm_no}','{$conso_br}','1',getdate(),getdate())";
-                    // $rs_conso = mssql_query($qry_conso);
-                }
+            if (strlen(trim($conso_br)) > 2) {
+                // $qry_conso = "delete from conspo_pivot where dm_no='$dm_no'; insert into conspo_pivot (dm_no,main_site,is_active,update_at,created_at) values ('{$dm_no}','{$conso_br}','1',getdate(),getdate())";
+                // $rs_conso = mssql_query($qry_conso);
             }
-            $counter++;
         }
+        $counter++;
     }
+    // }
 } else
     $data['status'] = 'failed';
 
