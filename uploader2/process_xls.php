@@ -41,7 +41,7 @@ function validateEntries($data)
   validateFields($data['E'], 'subcategory');    // subcategory
   /*  validateFields($data['H'], 'item dept');    // subcategory*/
   validateFields($data['J'], 'supplier code');  // vcode
-  var_dump($data['J']);
+
   // amount
 
   if (trim($data['L']) === '' or (int) $data['K'] === 0) {
@@ -120,7 +120,7 @@ if (strpos($lcuser, 'admin'))
 
 // filename check
 
-if (strpos($file['name'], '_') != false)
+if (strpos($file['name'], '_') == false)
   $fileErrors['filename_format'] = "Invalid filename format.
           Please follow the standard file naming convention!";
 else {
