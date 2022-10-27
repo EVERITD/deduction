@@ -599,7 +599,17 @@ if ($_GET['s'] == 1) {
 
   $select = " distinct a.dm_no,{$qrydmno}case when a.ap_od = 'AP' then j.aptno when a.ap_od = 'Other Deduction' then dod.voucher_or_no else '' end as cvno,case when ltrim(rtrim(a.branch_code)) = 'S399' then 'S306' else a.branch_code end as branch_code,c.dept_code,d.division_code,ltrim(rtrim(a.vendorcode)) as vpcode, ltrim(rtrim(a.suppliername)) as vpname,e.category_name,f.subcat_name,a.promo,
     {$qrydate}
-    a.amount,{$stat}isnull(h.buyer_code,'') as buyer_code,ltrim(rtrim(a.department))+ ' - '+ltrim(rtrim(k.deptname)) as department,
+    a.amount,
+    CASE 
+      WHEN a.dm_no_acctg = '' THEN
+        CASE
+          WHEN a.vposted = 0 then 'New'
+          WHEN a.vposted = 1 then 'Approved'
+          WHEN a.vposted = 2 then 'Cancelled'
+        END 
+      ELSE 'Printed'
+    END AS status,
+    {$stat}isnull(h.buyer_code,'') as buyer_code,ltrim(rtrim(a.department))+ ' - '+ltrim(rtrim(k.deptname)) as department,
     isnull(i.paymentdesc,'') as paymentdesc,a.period,
     case when a.remarks1 is null then a.remarks else a.remarks1 end as remarks,isnull(a.cancel_remarks,'') as cancel_remarks,a.encoded_by,review_by,
   case when a.dm_no_acctg = '' or a.dm_no_acctg is null or a.vposted = 2 then a.vposted else 4 end as vposted,isDMprinted,isPosted,
