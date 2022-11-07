@@ -603,11 +603,10 @@ if ($_GET['s'] == 1) {
     CASE 
       WHEN a.dm_no_acctg = '' THEN
         CASE
-          WHEN a.vposted = 0 then 'New'
-          WHEN a.vposted = 1 then 'Approved'
+          WHEN a.vposted = 1 AND  a.vposted = 0 then 'Approved'
           WHEN a.vposted = 2 then 'Cancelled'
         END 
-      ELSE 'Printed'
+      ELSE 'Approved'
     END AS status,
     {$stat}isnull(h.buyer_code,'') as buyer_code,ltrim(rtrim(a.department))+ ' - '+ltrim(rtrim(k.deptname)) as department,
     isnull(i.paymentdesc,'') as paymentdesc,a.period,

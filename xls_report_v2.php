@@ -47,7 +47,7 @@ if ($x > 0) {
     global $dmNumbers,
       $sep;
 
-    for ($j = 0; $j < 18; $j++) {
+    for ($j = 0; $j < 19; $j++) {
 
       $rdata = trim(preg_replace('/(\$|\#)+/', '', @$row[$j]));
 
