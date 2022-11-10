@@ -259,13 +259,10 @@ $branchCondition = ($branch === '%') ? 'like' : 'in';
 switch ($lststatus) {
   case "%": //for all status
     $stat = "
-    CASE 
-      WHEN a.dm_no_acctg = '' THEN
-        CASE
-          WHEN a.vposted = 1 AND  a.vposted = 0 then 'Approved'
-          WHEN a.vposted = 2 then 'Cancelled'
-        END 
-      ELSE 'Approved'
+    CASE
+      WHEN a.vposted = 1
+          OR a.vposted = 0 THEN 'Approved'
+      WHEN a.vposted = 2 THEN 'Cancelled'
     END AS status,";
     $qrystat = "and vposted like '%' ";
     $dateshow = 'Date Encoded';
