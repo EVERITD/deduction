@@ -179,7 +179,7 @@
                     <td style="text-align: center;"><?php echo $row['H']; ?></td>
                     <td><?php echo $row['I']; ?></td>
                     <td><?php echo $row['J']; ?></td>
-                    <td><?php echo $row['L']; ?></td>
+                    <td><?php echo $row['K']; ?></td>
                     <td style="text-align: right;"><?php echo number_format($row['L'], 2); ?></td>
                     <td style="text-align: center;"><?php echo $row['M']; ?></td>
                     <td><?php echo $row['N']; ?></td>
@@ -188,7 +188,7 @@
                     </td>
                   </tr>
                 <?php
-                  $total += $row['I'];
+                  $total += $row['L'];
                 endif;
                 $dataIndex++;
               endforeach;
