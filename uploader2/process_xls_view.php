@@ -203,6 +203,7 @@
                   <td><?php echo $dm->dept_code; ?></td>
                   <td><?php echo $dm->category_code; ?></td>
                   <td><?php echo $dm->subcat_code; ?></td>
+                  <td><?php echo $dm->promo; ?></td>
                   <td><?php echo $dm->disparea; ?></td>
                   <td style="text-align: center;"><?php echo $dm->buyerid; ?></td>
                   <td><?php echo $dm->department; ?></td>
@@ -226,7 +227,7 @@
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="10"><strong>Total</strong></td>
+              <td colspan="11"><strong>Total</strong></td>
               <td style="text-align: right;"><strong><?php echo number_format($total, 2); ?></strong></td>
               <td>&nbsp;</td>
               <td>&nbsp;</td>
